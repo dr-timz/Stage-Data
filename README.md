@@ -6,14 +6,14 @@ Ce projet regroupe un pipeline simple pour comparer des annotations **manuelles*
 
 | Fichier | Rôle |
 |---|---|
-| `ExtractTableauCsvDoccano_v2.ipynb` | Extrait les médicaments et attributs depuis `doccanno0904.jsonl`, puis génère `gold_standard.csv`. |
-| `ExtractTableauCsvMedkit_v2.ipynb` | Extrait les médicaments et attributs depuis `pour_talha.json`, puis génère `annot_medkit.csv`. |
-| `normalisation.ipynb` | Harmonise les valeurs textuelles et génère `gold_standard_norm.csv` et `annot_medkit_norm.csv`. |
-| `evaluation.ipynb` | Compare les fichiers normalisés et calcule les métriques globales et par attribut. |
+| `ExtractTableauCsvDoccano.ipynb` | Extrait les médicaments et attributs depuis `doccanno0904.jsonl`, puis génère `gold_standard.csv`. |
+| `ExtractTableauCsvMedkit.ipynb` | Extrait les médicaments et attributs depuis `medkit.json`, puis génère `annot_medkit.csv`. |
+| `Normalisation.ipynb` | Harmonise les valeurs textuelles et génère `gold_standard_norm.csv` et `annot_medkit_norm.csv`. |
+| `Evaluation.ipynb` | Compare les fichiers normalisés et calcule les métriques globales et par attribut. |
 
 ## Données d'entrée
 
-Le notebook Doccano lit un export JSONL contenant des entités et des relations, puis reconstruit les mentions médicamenteuses à partir des offsets de texte. Le notebook Medkit lit `pour_talha.json`, sépare les objets de type `Entity` et `Relation`, puis rattache les attributs aux médicaments via les identifiants source et cible.
+Le notebook Doccano lit un export JSONL contenant des entités et des relations, puis reconstruit les mentions médicamenteuses à partir des offsets de texte. Le notebook Medkit lit `medkit.json`, sépare les objets de type `Entity` et `Relation`, puis rattache les attributs aux médicaments via les identifiants source et cible.
 
 ## Étape 1 — Extraction Doccano
 
@@ -21,7 +21,7 @@ Le script Doccano identifie les entités de type `Med` et `Classe`, puis conserv
 
 ## Étape 2 — Extraction Medkit
 
-Le script Medkit applique la même logique métier sur `pour_talha.json`, avec une étape préalable de séparation entre entités et relations dans `content["anns"]`. Il conserve également le score de confiance lorsqu'il est présent dans les attributs de l'entité, puis exporte les résultats vers `annot_medkit.csv`.
+Le script Medkit applique la même logique métier sur `medkit.json`, avec une étape préalable de séparation entre entités et relations dans `content["anns"]`. Il conserve également le score de confiance lorsqu'il est présent dans les attributs de l'entité, puis exporte les résultats vers `annot_medkit.csv`.
 
 ## Étape 3 — Normalisation
 
@@ -40,7 +40,7 @@ Le notebook d'évaluation fusionne les fichiers normalisés sur `Medicament_norm
 | `annot_medkit.csv` | Extraction structurée des annotations automatiques Medkit. |
 | `gold_standard_norm.csv` | Version normalisée du gold standard. |
 | `annot_medkit_norm.csv` | Version normalisée des annotations automatiques. |
-| `output/metrics_summary_corrected.csv` | Tableau récapitulatif des métriques globales et par attribut. |
+| `metrics_summary.csv` | Tableau récapitulatif des métriques globales et par attribut. |
 
 ## Tech Stack
 
