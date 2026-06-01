@@ -31,12 +31,6 @@ Le notebook de normalisation standardise les chaînes de caractères afin de ré
 
 Le notebook d'évaluation fusionne les fichiers normalisés sur `Medicament_norm` et `Position_texte`, ce qui permet d'évaluer les correspondances entre gold standard et annotations automatiques. Il calcule une métrique globale sur les lignes alignées, puis des métriques par attribut : `Dosage`, `Frequence`, `Voie_administration`, `Date`, `Date_relative` et `Contexte`.
 
-## Ordre d'exécution
-
-1. Exécuter `ExtractTableauCsvDoccano_v2.ipynb` pour produire `gold_standard.csv`.
-2. Exécuter `ExtractTableauCsvMedkit_v2.ipynb` pour produire `annot_medkit.csv`.
-3. Exécuter `normalisation.ipynb` pour produire les deux fichiers normalisés.
-4. Exécuter `evaluation.ipynb` pour générer le tableau de métriques et le fichier `output/metrics_summary_corrected.csv`.
 
 ## Sorties produites
 
