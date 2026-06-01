@@ -1,6 +1,6 @@
 # Extraction et évaluation d'annotations médicamenteuses
 
-Ce projet regroupe un pipeline simple pour comparer des annotations **manuelles** issues de Doccano avec des annotations **automatiques** produites à partir d'un fichier Medkit/Talha. Le flux de travail comprend quatre étapes : extraction du gold standard, extraction des annotations automatiques, normalisation des sorties tabulaires, puis évaluation des performances.
+Ce projet regroupe un pipeline simple pour comparer des annotations **manuelles** issues de Doccano avec des annotations **automatiques** produites à partir d'un fichier Medkit. Le flux de travail comprend quatre étapes : extraction du gold standard, extraction des annotations automatiques, normalisation des sorties tabulaires, puis évaluation des performances.
 
 ## Structure du projet
 
