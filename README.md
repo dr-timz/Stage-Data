@@ -11,9 +11,6 @@ Ce projet regroupe un pipeline simple pour comparer des annotations **manuelles*
 | `Normalisation.ipynb` | Harmonise les valeurs textuelles et génère `gold_standard_norm.csv` et `annot_medkit_norm.csv`. |
 | `Evaluation.ipynb` | Compare les fichiers normalisés et calcule les métriques globales et par attribut. |
 
-## Données d'entrée
-
-Le notebook Doccano lit un export JSONL contenant des entités et des relations, puis reconstruit les mentions médicamenteuses à partir des offsets de texte. Le notebook Medkit lit `medkit.json`, sépare les objets de type `Entity` et `Relation`, puis rattache les attributs aux médicaments via les identifiants source et cible.
 
 ## Étape 1 — Extraction Doccano
 
@@ -31,16 +28,6 @@ Le notebook de normalisation standardise les chaînes de caractères afin de ré
 
 Le notebook d'évaluation fusionne les fichiers normalisés sur `Medicament_norm` et `Position_texte`, ce qui permet d'évaluer les correspondances entre gold standard et annotations automatiques. Il calcule une métrique globale sur les lignes alignées, puis des métriques par attribut : `Dosage`, `Frequence`, `Voie_administration`, `Date`, `Date_relative` et `Contexte`.
 
-
-## Sorties produites
-
-| Fichier de sortie | Description |
-|---|---|
-| `gold_standard.csv` | Extraction structurée des annotations Doccano. |
-| `annot_medkit.csv` | Extraction structurée des annotations automatiques Medkit. |
-| `gold_standard_norm.csv` | Version normalisée du gold standard. |
-| `annot_medkit_norm.csv` | Version normalisée des annotations automatiques. |
-| `metrics_summary.csv` | Tableau récapitulatif des métriques globales et par attribut. |
 
 ## Tech Stack
 
